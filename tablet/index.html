@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <style type="text/css">
+      body, html {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        color: #fff;
+        font-family: Helvetica;
+        background-color: #000;
+      }
+      #mic-btn, #kbd-btn {
+        position: fixed;
+        top: 0;
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        background-color: #aaa;
+        margin: 20px;
+      }
+      #mic-btn {
+        right: 0;
+      }
+      #kbd-btn {
+        left: 0;
+      }
+      .mic-icn, .kbd-icn {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="mic-btn">
+      <img class="mic-icn" src="mic.svg" alt="Mic">
+    </div>
+
+    <div id="kbd-btn">
+      <img class="kbd-icn" src="keyboard.svg" alt="Keyboard">
+    </div>
+
+    <script>window.$ = window.jQuery = require('jquery');</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.1.0/annyang.min.js"></script>
+    <script>
+      var io = require('socket.io-client')
+      var socket = io('http://127.0.0.1:8080')
+
+      var trackpad = document.getElementsByTagName("BODY")[0]
+      var keyboard = document.getElementById('kbd-btn')
+      var mic      = document.getElementById('mic-btn')
+
+      trackpad.onmousemove = function(e) {
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+        console.log(e.x/w, e.y/h)
+        socket.emit('moveMouse', { x: e.x/w, y: e.y/h })
+      }
+
+      trackpad.onclick = function(e) {
+        // var w = window.innerWidth;
+        // var h = window.innerHeight;
+        // console.log(e.x/w, e.y/h)
+        socket.emit('mouseClick')
+      }
+
+      keyboard.onclick = function () { 
+        console.log('bring keyboard up')
+        prompt()
+      }
+
+      mic.onclick = function () {
+        console.log('doing speech stuff')
+      }      // click mic button - speach thingie
+
+//       var btn = document.getElementById('mic-btn')
+//       btn.onclick = function () {
+//         annyang.resume()
+//         console.log('listening')
+//       }
+
+      var recognition = new webkitSpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = "en-AU";
+      recognition.onresult = function(event) { 
+        console.log(event['results']['0']['0']['transcript']) 
+      }
+      recognition.start();
+
+      
+    </script>
+  </body>
+</html>
