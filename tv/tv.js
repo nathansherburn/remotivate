@@ -4,11 +4,11 @@ var io = require('socket.io')(8080);
 io.on('connection', function (socket) {
   console.log('connected')
 
-  var screenSize = robot.getScreenSize()
+  var s = robot.getScreenSize()
 
   socket.on('moveMouse', function (position) {
-    console.log('moveMouse to ' + position.x*screenSize.width, position.y*screenSize.height)
-    // robot.moveMouseSmooth(position.x, position.y)
+    console.log('moveMouse to ' + position.x*s.width, position.y*s.height)
+    robot.moveMouseSmooth(position.x*s.width, position.y*s.height)
   })
 
   socket.on('mouseClick', function () {
