@@ -68,7 +68,7 @@
       trackpad.ontouchmove = function(e) {
         var w = window.innerWidth;
         var h = window.innerHeight;
-        console.log(e.x/w, e.y/h)
+        console.log(e)
         socket.emit('moveMouse', { x: e.x/w, y: e.y/h })
       }
 
