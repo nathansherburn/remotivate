@@ -54,23 +54,23 @@
       var keyboard = document.getElementById('kbd-btn')
       var mic      = document.getElementById('mic-btn')
 
-      var hammertime = new Hammer(trackpad);
+      var hammertime = new Hammer(trackpad, { domEvents: true });
       
-      hammertime.on("hammer.input", function(ev) {
-        var w = window.innerWidth;
-        var h = window.innerHeight;
-        var x = ev.pointers[0].x
-        var y = ev.pointers[0].y
-        console.log(x/w,y/h)
-        // socket.emit('moveMouse', { x: x/w, y: y/h })
-      });
-
-      // trackpad.onmousemove = function(e) {
+      // hammertime.on("hammer.input", function(ev) {
       //   var w = window.innerWidth;
       //   var h = window.innerHeight;
-      //   console.log(e.x/w, e.y/h)
-      //   socket.emit('moveMouse', { x: e.x/w, y: e.y/h })
-      // }
+      //   var x = ev.deltaX
+      //   var y = ev.deltaY
+      //   console.log(x/w,y/h)
+      //   // socket.emit('moveMouse', { x: x/w, y: y/h })
+      // });
+
+      trackpad.ontouchmove = function(e) {
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+        console.log(e.x/w, e.y/h)
+        socket.emit('moveMouse', { x: e.x/w, y: e.y/h })
+      }
 
       trackpad.onclick = function(e) {
         socket.emit('mouseClick')

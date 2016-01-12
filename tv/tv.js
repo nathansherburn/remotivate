@@ -6,9 +6,11 @@ io.on('connection', function (socket) {
 
   var s = robot.getScreenSize()
 
-  socket.on('moveMouse', function (position) {
-    console.log('moveMouse to ' + position.x*s.width, position.y*s.height)
-    robot.moveMouseSmooth(position.x*s.width, position.y*s.height)
+  socket.on('moveMouse', function (offset) {
+    // console.log('moveMouse to ' + offset.x, offset.y)
+    var mousePos = robot.getMousePos()
+    console.log(Number(mousePos.x) + Number(offset.x))
+    robot.moveMouse(mousePos.x + offset.x, mousePos.y + offset.y)
   })
 
   socket.on('mouseClick', function () {
