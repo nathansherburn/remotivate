@@ -85,7 +85,7 @@
         var x = e.touches[0].clientX
         var y = e.touches[0].clientY
         console.log(xPrev-x/w)
-        socket.emit('moveMouse', { dx: xPrev-x/w, dy: yPrev-y/h })
+        socket.emit('moveMouse', { dx: x/w - xPrev, dy: y/h - yPrev })
         xPrev = x/w
         yPrev = y/h
       }

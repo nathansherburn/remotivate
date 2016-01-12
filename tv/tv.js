@@ -9,8 +9,8 @@ io.on('connection', function (socket) {
   socket.on('moveMouse', function (offset) {
     // console.log('moveMouse to ' + offset.x, offset.y)
     var mousePos = robot.getMousePos()
-    console.log(Number(mousePos.x) + Number(offset.x))
-    robot.moveMouse(mousePos.x + offset.x, mousePos.y + offset.y)
+    console.log(mousePos.x + offset.dx * s.width)
+    robot.moveMouse(mousePos.x + offset.dx * s.width, mousePos.y + offset.dy * s.height)
   })
 
   socket.on('mouseClick', function () {
