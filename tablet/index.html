@@ -82,7 +82,7 @@
 
       trackpad.ontouchmove = function(e) {
         var now = new Date().getTime()
-        if (now - previousPoint > 1000) {
+        if (now - previousPoint > 100) {
           previousPoint = now          
           var w = window.innerWidth
           var h = window.innerHeight
