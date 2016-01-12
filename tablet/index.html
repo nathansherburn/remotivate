@@ -64,6 +64,9 @@
       //   console.log(x/w,y/h)
       //   // socket.emit('moveMouse', { x: x/w, y: y/h })
       // });
+      trackpad.ontouchstart = function (e) {
+        console.log('touchstart ' + e)
+      }
 
       trackpad.ontouchmove = function(e) {
         var w = window.innerWidth;
