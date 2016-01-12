@@ -67,6 +67,7 @@
       
       var xPrev = 0
       var yPrev = 0
+      var previousPoint = 0
 
       trackpad.ontouchstart = function (e) {
         // var startPos = e.
@@ -80,14 +81,18 @@
       }
 
       trackpad.ontouchmove = function(e) {
-        var w = window.innerWidth
-        var h = window.innerHeight
-        var x = e.touches[0].clientX
-        var y = e.touches[0].clientY
-        console.log(xPrev-x/w)
-        socket.emit('moveMouse', { dx: x/w - xPrev, dy: y/h - yPrev })
-        xPrev = x/w
-        yPrev = y/h
+        var now = new Date().getTime()
+        if (now - previousPoint > 1000) {
+          previousPoint = now          
+          var w = window.innerWidth
+          var h = window.innerHeight
+          var x = e.touches[0].clientX
+          var y = e.touches[0].clientY
+          console.log(xPrev-x/w)
+          socket.emit('moveMouse', { dx: x/w - xPrev, dy: y/h - yPrev })
+          xPrev = x/w
+          yPrev = y/h
+        }
       }
 
       trackpad.onclick = function(e) {
