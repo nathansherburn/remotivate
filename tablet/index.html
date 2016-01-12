@@ -67,7 +67,8 @@
       trackpad.ontouchstart = function (e) {
         // var startPos = e.
         console.log('touchstart')
-        console.log(e)
+        console.log(e.touches[0].clientX)
+        console.log(e.touches[0].clientY)
       }
 
       trackpad.ontouchmove = function(e) {
