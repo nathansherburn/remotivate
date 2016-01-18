@@ -48,6 +48,7 @@
 
     <script>
       var io = require('socket.io-client')
+      var robot = require('robotjs')
       var socket = io('http://10.0.0.200:8080')
 
       var trackpad = document.getElementsByTagName("BODY")[0]
@@ -64,35 +65,49 @@
       //   console.log(x/w,y/h)
       //   // socket.emit('moveMouse', { x: x/w, y: y/h })
       // });
+
+      console.log('hle')
+
+      for (var i = 0; i < 1000; i++) {
+        console.log( robot.getMousePos() )
+      }
       
       var xPrev = 0
       var yPrev = 0
       var previousPoint = 0
 
+      document.onmousemove = function (e) {
+        console.log( 'mousemove' )
+        console.log( robot.getMousePos() )        
+      }
+
       trackpad.ontouchstart = function (e) {
-        // var startPos = e.
-        console.log('touchstart')
-        var w = window.innerWidth
-        var h = window.innerHeight
-        xPrev = e.touches[0].clientX/w
-        yPrev = e.touches[0].clientY/h
-        console.log(e.touches[0].clientX)
-        console.log(e.touches[0].clientY)
+        console.log( 'touchstart' )
+        console.log( robot.getMousePos() )        
+        // var w = window.innerWidth
+        // var h = window.innerHeight
+        // xPrev = e.touches[0].clientX/w
+        // yPrev = e.touches[0].clientY/h
+        // console.log(e.touches[0].clientX)
+        // console.log(e.touches[0].clientY)
       }
 
       trackpad.ontouchmove = function(e) {
-        var now = new Date().getTime()
-        if (now - previousPoint > 10) {
-          previousPoint = now          
-          var w = window.innerWidth
-          var h = window.innerHeight
-          var x = e.touches[0].clientX
-          var y = e.touches[0].clientY
-          console.log(xPrev-x/w)
-          socket.emit('moveMouse', { dx: x/w - xPrev, dy: y/h - yPrev })
-          xPrev = x/w
-          yPrev = y/h
-        }
+        console.log( 'ontouchmove' )
+        console.log( robot.getMousePos() )        
+
+        // var now = new Date().getTime()
+        // if (now - previousPoint > 10) {
+        //   previousPoint = now          
+        //   var w = window.innerWidth
+        //   var h = window.innerHeight
+        //   var x = e.touches[0].clientX
+        //   var y = e.touches[0].clientY
+        //   console.log(xPrev-x/w)
+        //   socket.emit('moveMouse', { dx: x/w - xPrev, dy: y/h - yPrev })
+        //   xPrev = x/w
+        //   yPrev = y/h
+        // }
       }
 
       trackpad.onclick = function(e) {
