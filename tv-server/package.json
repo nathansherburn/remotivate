@@ -1,0 +1,16 @@
+{
+  "name": "remotivate-tv",
+  "version": "1.0.0",
+  "description": "Server for the remotivate application",
+  "main": "tv.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nathan Sherburn",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "robotjs": "^0.3.7",
+    "socket.io": "^1.4.5"
+  }
+}

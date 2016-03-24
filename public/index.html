@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Remotivate!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="shortcut icon" sizes="196x196" href="assets/img/MARSicon.png" />
+    <link rel="apple-touch-icon-precomposed" href="assets/img/MARSicon.png" />
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/pc-controls.css">
+  </head>
+  <body>
+    <div id="tabs">
+      <img src="img/tv.png" class="tab-icon">
+      <img src="img/spotify.png" class="tab-icon">
+      <img src="img/tv.png" class="tab-icon">
+      <img src="img/tv.png" class="tab-icon">
+      <img src="img/tv.png" class="tab-icon">
+      <img src="img/tv.png" class="tab-icon">
+      <img src="img/tv.png" class="tab-icon">
+    </div>
+
+    <div id="page">
+      <div id="mic-btn"><img class="mic-icn" src="mic.svg"></div>
+      <div id="kbd-btn"><img class="kbd-icn" src="keyboard.svg"></div>
+      <div id="right-click"></div>
+      <div id="trackpad"></div>
+      <div id="scrollpad"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.js"></script>
+
+    <script>
+      var socket = io('http://192.168.0.146:3000')
+      window.oncontextmenu = function(e) {
+        e.preventDefault()
+        e.stopPropagation()
+        return false
+      }
+      document.getElementById('page').ontouchmove = function(e) {
+        e.preventDefault()
+        e.stopPropagation()
+        return false
+      }
+
+    </script>
+
+    <script src="js/pc-controls.js"></script>
+
+  </body>
+</html>

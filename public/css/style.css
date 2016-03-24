@@ -1,0 +1,44 @@
+body, html {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  font-family: Helvetica;
+  background-color: #000;
+  -webkit-overflow-scrolling: touch;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* IE/Edge */
+  user-select: none;           /* non-prefixed version */
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+#tabs {
+  box-sizing: border-box;
+  position: relative;
+  height: 20%;
+  background-color: #300;
+  overflow-x: scroll;
+  white-space: nowrap;
+  padding: 2em;
+}
+
+.tab-icon {
+  height: 100%;
+  margin: 0px 10px;
+}
+
+#page {
+  position: relative;
+  height: 80%;
+  width: 100%;
+  background-color: #000;
+}

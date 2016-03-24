@@ -1,0 +1,11 @@
+{
+  "name": "remotivate-client",
+  "version": "1.0.0",
+  "description": "Remotivate web app (client)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nathan Sherburn",
+  "license": "ISC"
+}
