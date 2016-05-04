@@ -1,48 +1,41 @@
-#mic-btn, #kbd-btn {
-  position: absolute;
-  top: 0;
-  width: 4em;
-  height: 4em;
-  border-radius: 2em;
-  background-color: #aaa;
-  margin: 20px;
+/* Initially showing the TV controls */
+#pc-controls {
+  display: none;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
 }
 
-#mic-btn {
-  right: 0;
-}
-
-#kbd-btn {
-  left: 0;
-}
-
-.mic-icn, .kbd-icn {
+.pc-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #444;
+  opacity: 0.9;
+  height: 20%;
   width: 100%;
 }
 
-#right-click {
-  position: fixed;
-  bottom: 50%;
-  right: 0px;
-  width: 50%;
-  height: 10%;
-  background-color: #444;
+.pc-cntrl-icon {
+  font-size: 2em;
+}
+
+.pc-trackpad {
+  display: flex;
+  flex-direction: row;
+  height: 80%;
+  width: 100%;
 }
 
 #trackpad {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 85%;
-  height: 50%;
+  flex-grow: 3;
   background-color: #333;
+  opacity: 0.9;
 }
 
 #scrollpad {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  width: 15%;
-  height: 50%;
+  width: 100px;
   background-color: #222;
+  opacity: 0.9;
 }

@@ -11,46 +11,152 @@
     <link rel="shortcut icon" sizes="196x196" href="assets/img/MARSicon.png" />
     <link rel="apple-touch-icon-precomposed" href="assets/img/MARSicon.png" />
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/tv-controls.css">
     <link rel="stylesheet" type="text/css" href="css/pc-controls.css">
   </head>
   <body>
     <div id="tabs">
-      <img src="img/tv.png" class="tab-icon">
-      <img src="img/spotify.png" class="tab-icon">
-      <img src="img/tv.png" class="tab-icon">
-      <img src="img/tv.png" class="tab-icon">
-      <img src="img/tv.png" class="tab-icon">
-      <img src="img/tv.png" class="tab-icon">
-      <img src="img/tv.png" class="tab-icon">
+      <i class="material-icons tab-icon" onclick="changeTab('#tv')">tv</i>
+      <div class="tab-icon"><img src="img/netflix.png" class="tab-img" align="bottom" onclick="changeTab('#pc-controls')"></div>
+      <div class="tab-icon"><img src="img/spotify.png" class="tab-img" onclick="changeTab('#pc-controls')"></div>
+      <div class="tab-icon"><img src="img/youtube.png" class="tab-img" onclick="changeTab('#pc-controls')"></div>
+      <div class="tab-icon"><img src="img/chrome.png" class="tab-img" onclick="changeTab('#chrome')"></div>
+      <i class="material-icons tab-icon" onclick="changeTab('#pc-controls')">cloud_download</i>
+      <i class="material-icons tab-icon" onclick="changeTab('#pc-controls')">folder</i>
+      <i class="material-icons tab-icon" onclick="changeTab('#pc-controls')">mouse</i>
     </div>
 
     <div id="page">
-      <div id="mic-btn"><img class="mic-icn" src="mic.svg"></div>
-      <div id="kbd-btn"><img class="kbd-icn" src="keyboard.svg"></div>
-      <div id="right-click"></div>
-      <div id="trackpad"></div>
-      <div id="scrollpad"></div>
+      <div id="tv">
+        <div class=""></div>
+        <img class="channel-btn" src="img/ch-2.png" onclick="changeChannel(2)">
+        <img class="channel-btn" src="img/ch-7.png" onclick="changeChannel(7)">
+        <img class="channel-btn" src="img/ch-9.png" onclick="changeChannel(9)">
+        <img class="channel-btn" src="img/ch-10.png" onclick="changeChannel(10)">
+        <img class="channel-btn" src="img/ch-11.png" onclick="changeChannel(11)">
+        <img class="channel-btn" src="img/ch-2.png">
+        <img class="channel-btn" src="img/ch-7.png">
+        <img class="channel-btn" src="img/ch-9.png">
+        <img class="channel-btn" src="img/ch-10.png">
+        <img class="channel-btn" src="img/ch-11.png">
+        <img class="channel-btn" src="img/ch-2.png">
+        <img class="channel-btn" src="img/ch-7.png">
+        <img class="channel-btn" src="img/ch-9.png">
+        <img class="channel-btn" src="img/ch-10.png">
+        <img class="channel-btn" src="img/ch-11.png">
+        <img class="channel-btn" src="img/ch-2.png">
+        <img class="channel-btn" src="img/ch-7.png">
+        <img class="channel-btn" src="img/ch-9.png">
+        <img class="channel-btn" src="img/ch-10.png">
+        <img class="channel-btn" src="img/ch-11.png">
+        <img class="channel-btn" src="img/ch-2.png">
+        <img class="channel-btn" src="img/ch-7.png">
+        <img class="channel-btn" src="img/ch-9.png">
+        <img class="channel-btn" src="img/ch-10.png">
+        <img class="channel-btn" src="img/ch-11.png">
+        <img class="channel-btn" src="img/ch-2.png">
+        <img class="channel-btn" src="img/ch-7.png">
+        <img class="channel-btn" src="img/ch-9.png">
+        <img class="channel-btn" src="img/ch-10.png">
+        <img class="channel-btn" src="img/ch-11.png">
+        <img class="channel-btn" src="img/ch-2.png">
+        <img class="channel-btn" src="img/ch-7.png">
+        <img class="channel-btn" src="img/ch-9.png">
+        <img class="channel-btn" src="img/ch-10.png">
+        <img class="channel-btn" src="img/ch-11.png">
+        <img class="channel-btn" src="img/ch-2.png">
+        <img class="channel-btn" src="img/ch-7.png">
+        <img class="channel-btn" src="img/ch-9.png">
+        <img class="channel-btn" src="img/ch-10.png">
+        <img class="channel-btn" src="img/ch-11.png">
+        <img class="channel-btn" src="img/ch-2.png">
+        <img class="channel-btn" src="img/ch-7.png">
+        <img class="channel-btn" src="img/ch-9.png">
+        <img class="channel-btn" src="img/ch-10.png">
+        <img class="channel-btn" src="img/ch-11.png">
+        <img class="channel-btn" src="img/ch-2.png">
+        <img class="channel-btn" src="img/ch-7.png">
+        <img class="channel-btn" src="img/ch-9.png">
+        <img class="channel-btn" src="img/ch-10.png">
+        <img class="channel-btn" src="img/ch-11.png">
+        <img class="channel-btn" src="img/ch-2.png">
+        <img class="channel-btn" src="img/ch-7.png">
+        <img class="channel-btn" src="img/ch-9.png">
+        <img class="channel-btn" src="img/ch-10.png">
+        <img class="channel-btn" src="img/ch-11.png">
+
+      </div>
+
+      <div id="chrome">
+        <div class="pc-buttons">
+          <div id="mic-btn"><i class="material-icons pc-cntrl-icon">mic</i></div>
+          <div id="kbd-btn"><i class="material-icons pc-cntrl-icon">keyboard</i></div>
+          <div id="right-click"><i class="material-icons pc-cntrl-icon">mouse</i></div>
+        </div>
+        <div class="pc-trackpad">
+          <div id="trackpad"></div>
+          <div id="scrollpad"></div>
+        </div>
+      </div>
+
+      <div id="pc-controls">
+        <div class="pc-buttons">
+          <div id="mic-btn"><i class="material-icons pc-cntrl-icon">mic</i></div>
+          <div id="kbd-btn"><i class="material-icons pc-cntrl-icon">keyboard</i></div>
+          <div id="right-click"><i class="material-icons pc-cntrl-icon">mouse</i></div>
+        </div>
+        <div class="pc-trackpad">
+          <div id="trackpad"></div>
+          <div id="scrollpad"></div>
+        </div>
+      </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.js"></script>
 
     <script>
       var socket = io('http://192.168.0.146:3000')
+
+      var currentTab = '#tv'
+
+      function $ (selector) {
+        return document.querySelector(selector)
+      }
+
       window.oncontextmenu = function(e) {
         e.preventDefault()
         e.stopPropagation()
         return false
       }
-      document.getElementById('page').ontouchmove = function(e) {
-        e.preventDefault()
-        e.stopPropagation()
-        return false
+
+      $('#page').ontouchmove = function(e) {
+        // e.preventDefault()
+        // e.stopPropagation()
+        // return false
       }
+
+      function changeTab (newTab) {
+        $(currentTab).style.display = 'none'
+        $(newTab).style.display = 'flex'
+        currentTab = newTab
+        controller = currentTab
+        if (newTab === '#tv') {
+          socket.emit('start app', {appName: 'VLC'})
+        } else if (newTab === '#pc-controls') {
+          socket.emit('start app', {appName: 'Spotify'})
+        } else if (newTab === '#chrome') {
+          socket.emit('start app', {appName: 'Chrome'})
+        }
+      } 
+
 
     </script>
 
     <script src="js/pc-controls.js"></script>
+    <script src="js/tv-controls.js"></script>
 
   </body>
 </html>
